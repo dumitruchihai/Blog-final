@@ -1,0 +1,20 @@
+<li [ngClass]="{'list-group-item': true, 
+                'list-group-item-success' : articleLoveIts > 0,
+                'list-group-item-danger' : articleLoveIts < 0}">
+  <div class="row">
+    <div class="col-md-9">
+      <h2 [ngStyle]="{color: getColor()}">{{ articleTitre }}</h2>
+    </div>
+    <div class="col-md-3">
+      <p>{{ articleCreatedDate | date : 'short'}}</p>
+    </div>
+  </div>
+  <p [ngStyle]="{color: getColor()}">{{ articleContent }}</p>
+  <button class="btn btn-success mr-2"
+                (click) = "onLoveIt()">Love It!</button>
+  <button class="btn btn-danger"
+                (click) = "onDissLoveIt()">Don't love It!</button>
+  <button class="btn btn-warning float-right" 
+                (click)= "onDeleteArticle(indexOfArticles)">Supprimer post</button>
+  
+</li>
